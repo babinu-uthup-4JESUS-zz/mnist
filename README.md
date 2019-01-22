@@ -11,3 +11,7 @@ Modeling scripts must be named <MODELING TECHNIQUE>_<MODELING IMPLEMENTATION MET
 Once they are uploaded to kaggle, the scripts could be named differently.
 
 The method used, the link to the script uploaded to kaggle, as well as the validation score, must be updated in the documentation.
+
+Submission files must be named submission_<SCRIPT NAME>.csv
+Kaggle scripts must be named <PROJECT NAME>(which is mnist here) <MODELING TECHNIQUE> <MODELING IMPLEMENTATION METHOD> < Validation score : > 
+NOTE : We do not include test score as that is calculated only at the end to avoid overfitting to test data.
