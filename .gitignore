@@ -114,3 +114,7 @@ dmypy.json
 .pyre/
 .Rhistory
 *.csv
+
+# Model checkpoint folder
+classification_outputs/
+
