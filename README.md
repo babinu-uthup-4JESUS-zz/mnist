@@ -1,17 +1,21 @@
-# mnist
-Building models to predict MNIST data. Documentation has been listed here(https://docs.google.com/document/d/14kHFEqv503kohv5qBCwNiJqbxQc8iK1kqgYWXRBjnHo/edit?usp=sharing).
+# Overview
 
-# Conventions
-Data files must be inside input subdirectory.
+As part of this competition, we try to come up with a model for predicting MNIST data.
 
-Modeling scripts must be inside scripts subdirectory.
+# Modeling techniques analyzed
 
-Modeling scripts must be named <MODELING TECHNIQUE>_<MODELING IMPLEMENTATION METHOD>.ipynb. For example, if we used random forest from sklearn, the script must be named randomforest_sklearn.ipynb. If we used dnn from tensorflow, the script must be named dnn_tensorflow.ipynb.
+  - [RandomForest](https://github.com/babinu-uthup-4JESUS/mnist/blob/master/scripts/randomforest_sklearn.ipynb) ([uploaded on kaggle](https://www.kaggle.com/babinu/mnist-random-forest-validation-score-0-965)) (Validation score : 96.5%)
+  - [DNN using tensorflow](https://github.com/babinu-uthup-4JESUS/mnist/blob/master/scripts/dnn_tensorflow.ipynb) ([uploaded on kaggle](https://www.kaggle.com/babinu/mnist-dnn-tensor-flow-validation-score-0-976)) (Validation score : 96.5%)
+  - [Logistic classifier (with sklearn)](https://github.com/babinu-uthup-4JESUS/mnist/blob/master/scripts/logistic_classification_sklearn.ipynb) ([uploaded on kaggle](https://www.kaggle.com/babinu/mnist-logistic-class-skl-val-score-0-916)) (Validation score : 96.5%)
+  - [Logistic classifier (with tensorflow)](https://github.com/babinu-uthup-4JESUS/mnist/blob/master/scripts/logistic_classification_tensorflow.ipynb) ([uploaded on kaggle](https://www.kaggle.com/babinu/mnist-logistic-class-tfl-val-score-0-899)) (Validation score : 96.5%)
+  - [Gradient boosting using xgboost](https://github.com/babinu-uthup-4JESUS/mnist/blob/master/scripts/boosting_trees_xgboost.ipynb) ([uploaded on kaggle](https://www.kaggle.com/babinu/mnist-boosting-trees-xgboost-val-score-0-9723?scriptVersionId=10007425)) (Validation score : 96.5%)
+ 
   
-Once they are uploaded to kaggle, the scripts could be named differently.
 
-The method used, the link to the script uploaded to kaggle, as well as the validation score, must be updated in the documentation.
+Now that we have these models, the natural step is to do an ensemble of the best models (checking their correlations in the process as well) and see how much of an improvement we get.
 
-Submission files must be named submission_<SCRIPT NAME>.csv
-Kaggle scripts must be named <PROJECT NAME>(which is mnist here) <MODELING TECHNIQUE> <MODELING IMPLEMENTATION METHOD> < Validation score : > 
-NOTE : We do not include test score as that is calculated only at the end to avoid overfitting to test data.
+[We do an ensemble of randomForest, dnn and gradient boosting models and that does give us  an accuracy bump of 0.25% on the validation set.](https://github.com/babinu-uthup-4JESUS/mnist/blob/master/scripts/ensembler.ipynb)
+
+The next step in this project would be to explore [convolutional neural networks](https://www.kaggle.com/cdeotte/25-million-images-0-99757-mnist), but I am putting that on hold for now, since my current priority is to master data exploration/validation methods and modeling techniques  that I am aware of (rather than always jumping on to new ones).
+
+Hence, let us generate the predictions on the test set with our final ensembled model and submit them to kaggle.
